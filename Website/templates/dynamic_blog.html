@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dynamic Blog Recommendation</title>
+	
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<div class="container">
+		<h3>Dynamic Blog Recommendation</h3>
+	</div>
+	<style>
+		.leftside, .rightside{
+		height: 30vh;
+		width: 100%;
+	}
+
+
+	.leftside{
+		background: white;
+	}
+
+	.rightside{
+		background: white;
+		margin-top: 30px;
+	}
+	a
+  	{
+  		color:#FF1818;
+  	}
+
+	</style>
+</head>
+<body>
+	<div class="bg">
+	<div class="container">
+	 <div class="row">
+	 	<div class="leftside">
+	 		<div class="container">
+	 		<form action="{{url_for('recommendation')}}" method="post">
+
+	 			<label for="url">Enter Url:</label>
+	 			<input type="text" name="url" size=100><br><br>
+				<label for="checkbox"><b><u>Choose Website For Recommendation</u></b></label><br>
+	 			<input type="checkbox" name="medium_check" value="medium_check">
+	 			<label for="web1">Medium</label><br>
+	 			<input type="checkbox" name="analytics_check" value="analytics_check">
+	 			<label for="web2">Analytics Vidhya</label><br>
+	 			<input type="checkbox" name="towards_check" value="towards_check">
+	 			<label for="web3">Towards Data Science</label><br><br>
+	 			<input type="submit" value="Find Similar Blogs">
+	 		</form>
+	 	</div>
+	 	</div>
+	 </div>
+	</div>
+	 <div class="container"> 
+	 	<div class="rightside" >
+	 			<!-- Recommendation here  -->	
+	 			<h3 id='abc'>Your Recommended Blogs</h3>
+
+	 				{% for title,links,webpage in titles_links %}
+	 					<p>{{ webpage }}</p>
+	 					<a href="{{ links }}">{{ title }}</a><br>
+	 					
+	 				{% endfor %}
+	 	</div>
+	 </div>
+	
+	 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	 </div>
+</body>
+</html>
