@@ -1,0 +1,15 @@
+.leftside, .rightside{
+	height: 60vh;
+	width: 100%;
+}
+
+html, body { overflow-x: hidden; }
+
+.leftside{
+	background: white;
+}
+
+.rightside{
+	background: white;
+	margin-top: 30px;
+}
