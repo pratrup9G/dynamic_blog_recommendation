@@ -299,14 +299,20 @@ def recommendation():
     
     elif (medium_checked and towards_checked and analytics_checked):
         most_similar_documents =most_similar_documents[(most_similar_documents['Webpage'] == 'Medium') | (most_similar_documents['Webpage'] == 'Towards_Data_Science') | (most_similar_documents['Webpage'] == 'Analytics_Vidhya')]
-
+    
+    if len(most_similar_documents) > 9:
     #Append the titles and links and webpage of the most_similar_documents in titles and links and send it to webpage
-    for i in range(0,10):
-        titles.append(most_similar_documents['Title'].iloc[i])
-        links.append(most_similar_documents['Links'].iloc[i])
-        webpage.append(most_similar_documents['Webpage'].iloc[i])
-       # print('******************************')
-
+        for i in range(0,10):
+                titles.append(most_similar_documents['Title'].iloc[i])
+                links.append(most_similar_documents['Links'].iloc[i])
+                webpage.append(most_similar_documents['Webpage'].iloc[i])
+        # print('******************************')
+    else:
+        for i in range(0,len(most_similar_documents)):
+                titles.append(most_similar_documents['Title'].iloc[i])
+                links.append(most_similar_documents['Links'].iloc[i])
+                webpage.append(most_similar_documents['Webpage'].iloc[i])
+                
     return render_template('dynamic_blog.html',titles_links=zip(titles,links,webpage))
 
 if __name__ == "__main__":
