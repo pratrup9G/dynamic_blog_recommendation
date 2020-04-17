@@ -6,15 +6,26 @@ from flask import Flask,render_template,request
 from selenium import webdriver
 import demoji #(pip install demoji) after that demoji.download_codes()
 import re
+import nltk
+nltk.download('stopwords')
+nltk.download('wordnet')
+
 from nltk.corpus import stopwords
 import string
 from nltk.tokenize import word_tokenize,TweetTokenizer
 from nltk.stem.wordnet import WordNetLemmatizer
+import os
+
 #import nltk
 from scipy.stats import entropy
-#demoji.download_codes() (Required for removing emojis from a text data)
+demoji.download_codes() # (Required for removing emojis from a text data)
 
 app = Flask(__name__)
+
+
+#GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+#CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
 
 #Load the trained models using pickle
 lda = pickle.load(open('lda_model','rb'))
@@ -191,7 +202,13 @@ def data_cleaning(data):
 
 ##Web scraping using selinium (When the user will paste the link of the blog all the data in that blog will be scraped using this function)
 def web_scrapper(link):
-    driver = webdriver.Chrome(r'C:\Users\BABI\chromedriver_win32\chromedriver.exe')## Give the location of your chromedriver (Download chromedriver it's required for scraping using selinium)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
     driver.get(link)
     description_p = driver.find_elements_by_tag_name('p')
     doc = []
