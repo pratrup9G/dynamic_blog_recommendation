@@ -3,7 +3,7 @@ import pandas as pa
 import seaborn as sn
 import matplotlib.pyplot as plt
 import warnings
-import gensim
+#import gensim
 import os
 from gensim import models,corpora,similarities
 from gensim.models import LdaModel
