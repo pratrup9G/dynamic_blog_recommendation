@@ -8,3 +8,6 @@ gunicorn==19.9.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 Werkzeug==0.15.5
+demoji==0.2.1
+gensim==3.8.2
+smart-open==1.11.1
