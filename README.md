@@ -12,3 +12,6 @@ The main objective of this project is to recommend blogs to a user based on the 
 * For training the model I have scraped some blogs from medium.com, Analytics Vidhya, and towards data science. (Total size is 750) 
 
 * I named it dynamic because here I can choose that from which websites I want to get the recommendations.
+
+
+* LINK WEBSITE https://blog-recommendation-dynamic.herokuapp.com/
