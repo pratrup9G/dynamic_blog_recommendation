@@ -15,3 +15,4 @@ The main objective of this project is to recommend blogs to a user based on the 
 
 
 * LINK WEBSITE https://blog-recommendation-dynamic.herokuapp.com/
+* VIDEO LINK https://www.linkedin.com/feed/update/urn:li:activity:6657007331370508288/
