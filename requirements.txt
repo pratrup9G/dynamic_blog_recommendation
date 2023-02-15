@@ -7,7 +7,7 @@ nltk==3.6.5
 gunicorn==19.9.0
 Jinja2==2.11.3
 MarkupSafe==1.1.1
-Werkzeug==0.15.5
+Werkzeug==2.2.3
 demoji==0.2.1
 gensim==3.8.2
 smart-open==1.11.1
